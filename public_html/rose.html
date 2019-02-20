@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>La vie en rose</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel=stylesheet type="text/css" href="bgchange.css">
+    </head>
+    <body>
+        <audio hidden autoplay controls loop><source src='La vie en rose - Louis Armstrong.mp3'></audio>
+        <script>
+var looper;
+var degrees = 0;
+function rotateAnimation(el,speed){
+	var elem = document.getElementById(el);
+	if(navigator.userAgent.match("Chrome")){
+		elem.style.WebkitTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("Firefox")){
+		elem.style.MozTransform = "rotate("+degrees+"deg)";
+	} else {
+		elem.style.transform = "rotate("+degrees+"deg)";
+	}
+	looper = setTimeout('rotateAnimation(\''+el+'\','+speed+')',speed);
+	degrees++;
+	if(degrees >359){
+		degrees = 0;
+	}
+	document.getElementById("status").innerHTML = "rotate("+degrees+"deg)";
+}
+        </script>
+        <h1 align="middle">
+            <img id="happy" src="louis.jpg" onclick="window.open('grey.html', '_self');">
+            <script>rotateAnimation("happy",25);</script>
+        </h1>
+    </body>
+</html>

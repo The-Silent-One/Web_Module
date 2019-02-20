@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sad Tunes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel=stylesheet type="text/css" href="bgchange2.css">
+    </head>
+    <body>
+        <audio hidden autoplay controls loop><source src='Louis Armstrong St James Infirmary.mp3'></audio>
+        <br><br><br><br><br><br>
+        <script>
+var looper;
+var degrees = 359;
+function rotateAnimation(el,speed){
+	var elem = document.getElementById(el);
+	if(navigator.userAgent.match("Chrome")){
+		elem.style.WebkitTransform = "rotate("+degrees+"deg)";
+	} else if(navigator.userAgent.match("Firefox")){
+		elem.style.MozTransform = "rotate("+degrees+"deg)";
+	} else {
+		elem.style.transform = "rotate("+degrees+"deg)";
+	}
+	looper = setTimeout('rotateAnimation(\''+el+'\','+speed+')',speed);
+	degrees--;
+	if(degrees == 0){
+		degrees = 359;
+	}
+	document.getElementById("status").innerHTML = "rotate("+degrees+"deg)";
+}
+        </script>
+        <h1 align="middle">
+            <img src="louis2.jpeg" onclick="window.open('rose.html', '_self');" id= 'sad'>
+            <script >rotateAnimation("sad",45);</script>
+        </h1>
+    </body>
+</html>

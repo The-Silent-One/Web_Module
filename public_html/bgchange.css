@@ -1,0 +1,17 @@
+body {
+            animation: bgcolor infinite 20s;
+        }
+        @keyframes bgcolor{
+            25%{
+                background: #FFC0CB;
+            }
+            50%{
+                background: #FFB6C1;
+            }
+            75%{
+                background: #FF69B4;
+            }
+            100%{
+                background: #FF1493;
+            }
+        }
